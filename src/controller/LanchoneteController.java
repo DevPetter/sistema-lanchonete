@@ -1,7 +1,5 @@
 package controller;
 
-import exceptions.CarrinhoVazioException;
-import exceptions.ProdutoNaoEncontradoException;
 import model.Carrinho;
 import model.Produto;
 
