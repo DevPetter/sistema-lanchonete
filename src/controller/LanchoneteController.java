@@ -18,6 +18,5 @@ public class LanchoneteController {
             }
         }
         carrinho.getCarrinho().add(produto);
-        System.out.println("Produto " + produto.getNome() + " adicionado ao carrinho.");
     }
 }
