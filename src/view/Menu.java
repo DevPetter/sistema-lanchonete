@@ -50,6 +50,15 @@ public class Menu {
                     case 4:
                         controller.limparCarrinho(sc);
                         break;
+
+                    case 5:
+                        controller.finalizarCompra(sc);
+                        break;
+
+                    case 0:
+                        System.out.println("Saindo...");
+                        System.exit(0);
+
                     default:
                         throw new OpcaoInvalidaException();
                 }
@@ -86,6 +95,13 @@ public class Menu {
                             case 1:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 int quantidade = sc.nextInt();
+
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Lanche lanche1 = new Lanche("X-Burguer", 10.00, quantidade);
                                 controller.adicionarProduto(lanche1);
@@ -96,6 +112,12 @@ public class Menu {
                             case 2:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Lanche lanche2 = new Lanche("X-Salada", 13.00, quantidade);
                                 controller.adicionarProduto(lanche2);
@@ -106,6 +128,12 @@ public class Menu {
                             case 3:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Lanche lanche3 = new Lanche("X-Churrasquinho", 18.00, quantidade);
                                 controller.adicionarProduto(lanche3);
@@ -116,6 +144,12 @@ public class Menu {
                             case 4:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Lanche lanche4 = new Lanche("X-Bacon", 22.00, quantidade);
                                 controller.adicionarProduto(lanche4);
@@ -126,6 +160,12 @@ public class Menu {
                             case 5:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Lanche lanche5 = new Lanche("X-Tudao", 28.00, quantidade);
                                 controller.adicionarProduto(lanche5);
@@ -157,6 +197,12 @@ public class Menu {
                             case 1:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 int quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Bebida bebida1 = new Bebida("Coca Cola", 5.00, quantidade);
                                 controller.adicionarProduto(bebida1);
@@ -167,6 +213,12 @@ public class Menu {
                             case 2:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Bebida bebida2 = new Bebida("Coca Cola ZERO", 5.00, quantidade);
                                 controller.adicionarProduto(bebida2);
@@ -177,6 +229,12 @@ public class Menu {
                             case 3:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Bebida bebida3 = new Bebida("Fanta Laranja", 4.49, quantidade);
                                 controller.adicionarProduto(bebida3);
@@ -187,6 +245,12 @@ public class Menu {
                             case 4:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Bebida bebida4 = new Bebida("Fanta Uva", 4.49, quantidade);
                                 controller.adicionarProduto(bebida4);
@@ -197,6 +261,12 @@ public class Menu {
                             case 5:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Bebida bebida5 = new Bebida("Guaraná Antartica", 5.79, quantidade);
                                 controller.adicionarProduto(bebida5);
@@ -228,6 +298,12 @@ public class Menu {
                             case 1:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 int quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Doce doce1 = new Doce("Snickers", 3.49, quantidade);
                                 controller.adicionarProduto(doce1);
@@ -239,6 +315,12 @@ public class Menu {
                             case 2:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Doce doce2 = new Doce("Suflair", 2.49, quantidade);
                                 controller.adicionarProduto(doce2);
@@ -250,6 +332,12 @@ public class Menu {
                             case 3:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
+                                if (quantidade <= 0) {
+                                    System.out.println();
+                                    System.out.println("[ERRO] - Quantidade inválida.");
+                                    System.out.println();
+                                    exibirMenu();
+                                }
                                 System.out.println();
                                 Doce doce3 = new Doce("Fini", 5.79, quantidade);
                                 controller.adicionarProduto(doce3);
