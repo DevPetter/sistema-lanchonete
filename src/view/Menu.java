@@ -3,9 +3,11 @@ package view;
 import controller.LanchoneteController;
 import exceptions.OpcaoInvalidaException;
 import model.Bebida;
+import model.Doce;
 import model.Lanche;
 import model.Produto;
 
+import javax.print.Doc;
 import java.util.Scanner;
 
 public class Menu {
@@ -41,6 +43,9 @@ public class Menu {
                         case 1:
                             menuAdicionarProduto(sc, controller);
                             break;
+
+                        case 2:
+
 
                     }
                 }
@@ -81,7 +86,7 @@ public class Menu {
                                 System.out.println();
                                 Lanche lanche1 = new Lanche("X-Burguer", 10.00, quantidade);
                                 controller.adicionarProduto(lanche1);
-                                System.out.println("Lanche " + lanche1.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Lanche " + lanche1.getNome() + "(" + lanche1.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -91,7 +96,7 @@ public class Menu {
                                 System.out.println();
                                 Lanche lanche2 = new Lanche("X-Salada", 13.00, quantidade);
                                 controller.adicionarProduto(lanche2);
-                                System.out.println("Lanche " + lanche2.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Lanche " + lanche2.getNome() + "(" + lanche2.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -101,7 +106,7 @@ public class Menu {
                                 System.out.println();
                                 Lanche lanche3 = new Lanche("X-Churrasquinho", 18.00, quantidade);
                                 controller.adicionarProduto(lanche3);
-                                System.out.println("Lanche " + lanche3.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Lanche " + lanche3.getNome() + "(" + lanche3.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -111,7 +116,7 @@ public class Menu {
                                 System.out.println();
                                 Lanche lanche4 = new Lanche("X-Bacon", 22.00, quantidade);
                                 controller.adicionarProduto(lanche4);
-                                System.out.println("Lanche " + lanche4.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Lanche " + lanche4.getNome() + "(" + lanche4.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -121,7 +126,7 @@ public class Menu {
                                 System.out.println();
                                 Lanche lanche5 = new Lanche("X-Tudâo", 28.00, quantidade);
                                 controller.adicionarProduto(lanche5);
-                                System.out.println("Lanche " + lanche5.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Lanche " + lanche5.getNome() + "(" + lanche5.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -152,7 +157,7 @@ public class Menu {
                                 System.out.println();
                                 Bebida bebida1 = new Bebida("Coca Cola", 5.00, quantidade);
                                 controller.adicionarProduto(bebida1);
-                                System.out.println("Bebida " + bebida1.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Bebida " + bebida1.getNome() + "(" + bebida1.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -162,7 +167,7 @@ public class Menu {
                                 System.out.println();
                                 Bebida bebida2 = new Bebida("Coca Cola ZERO", 5.00, quantidade);
                                 controller.adicionarProduto(bebida2);
-                                System.out.println("Bebida " + bebida2.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Bebida " + bebida2.getNome() + "(" + bebida2.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -172,7 +177,7 @@ public class Menu {
                                 System.out.println();
                                 Bebida bebida3 = new Bebida("Fanta Laranja", 4.49, quantidade);
                                 controller.adicionarProduto(bebida3);
-                                System.out.println("Bebida " + bebida3.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Bebida " + bebida3.getNome() + "(" + bebida3.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -182,7 +187,7 @@ public class Menu {
                                 System.out.println();
                                 Bebida bebida4 = new Bebida("Fanta Uva", 4.49, quantidade);
                                 controller.adicionarProduto(bebida4);
-                                System.out.println("Bebida " + bebida4.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Bebida " + bebida4.getNome() + "(" + bebida4.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -192,7 +197,7 @@ public class Menu {
                                 System.out.println();
                                 Bebida bebida5 = new Bebida("Guaraná Antartica", 5.79, quantidade);
                                 controller.adicionarProduto(bebida5);
-                                System.out.println("Bebida " + bebida5.getNome() + " adicionado ao carrinho.");
+                                System.out.println("Bebida " + bebida5.getNome() + "(" + bebida5.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
                                 break;
 
@@ -210,7 +215,60 @@ public class Menu {
                     break;
 
                 case 3:
+                    menuDoces();
+                    try{
+                        int opcaoDoce = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println();
 
+                        switch (opcaoDoce){
+                            case 1:
+                                System.out.print("Qual a quantidade desejada?: ");
+                                int quantidade = sc.nextInt();
+                                System.out.println();
+                                Doce doce1 = new Doce("Snickers", 3.49, quantidade);
+                                controller.adicionarProduto(doce1);
+                                System.out.println("Doce " + doce1.getNome() + "(" + doce1.getQuantidade() + ") adicionado ao carrinho.");
+
+                                System.out.println();
+                                break;
+
+                            case 2:
+                                System.out.print("Qual a quantidade desejada?: ");
+                                quantidade = sc.nextInt();
+                                System.out.println();
+                                Doce doce2 = new Doce("Suflair", 2.49, quantidade);
+                                controller.adicionarProduto(doce2);
+                                System.out.println("Doce " + doce2.getNome() + "(" + doce2.getQuantidade() + ") adicionado ao carrinho.");
+
+                                System.out.println();
+                                break;
+
+                            case 3:
+                                System.out.print("Qual a quantidade desejada?: ");
+                                quantidade = sc.nextInt();
+                                System.out.println();
+                                Doce doce3 = new Doce("Fini", 5.79, quantidade);
+                                controller.adicionarProduto(doce3);
+                                System.out.println("Doce " + doce3.getNome() + "(" + doce3.getQuantidade() + ") adicionado ao carrinho.");
+                                System.out.println();
+                                break;
+
+                            case 0:
+                                exibirMenu();
+                                break;
+
+                            default:
+                                throw new OpcaoInvalidaException();
+                        }
+                    }catch (OpcaoInvalidaException e){
+                        System.out.println(e.getMessage());
+                        System.out.println();
+                    }
+                    break;
+
+                case 0:
+                    exibirMenu();
 
                 default:
                     throw new OpcaoInvalidaException();
@@ -222,7 +280,7 @@ public class Menu {
     }
 
     private void menuLanches(){
-        System.out.println("============== Escolha o sabor do lanche que deseja ==============");
+        System.out.println("============== Escolha o lanche que deseja ==============");
         System.out.println("[1] - X-Burguer | R$10,00");
         System.out.println("[2] - X-Salada | R$13,00");
         System.out.println("[3] - X-Churrasquinho | R$18,00");
@@ -234,12 +292,22 @@ public class Menu {
     }
 
     private void menuBebidas(){
-        System.out.println("============== Escolha o a bebida que deseja ==============");
+        System.out.println("============== Escolha a bebida que deseja ==============");
         System.out.println("[1] - Coca-Cola 350ml | R$5,00");
         System.out.println("[2] - Coca-Cola ZERO 350ml | R$5,00");
         System.out.println("[3] - Fanta Laranja 350ml | R$4,49");
         System.out.println("[4] - Fanta Uva 350ml | R$4,49");
         System.out.println("[5] - Guaraná Antartica 350ml | R$5.79");
+        System.out.println("[0] - Voltar ao menu principal");
+        System.out.println();
+        System.out.print("Opção: ");
+    }
+
+    private void menuDoces(){
+        System.out.println("============== Escolha o doce que deseja ==============");
+        System.out.println("[1] - Snickers | R$3,49");
+        System.out.println("[2] - Suflair | R$2,49");
+        System.out.println("[3] - Fini | R$5,79");
         System.out.println("[0] - Voltar ao menu principal");
         System.out.println();
         System.out.print("Opção: ");
