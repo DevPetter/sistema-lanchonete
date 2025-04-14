@@ -1,13 +1,12 @@
 package view;
 
 import controller.LanchoneteController;
+import exceptions.CarrinhoVazioException;
 import exceptions.OpcaoInvalidaException;
 import model.Bebida;
 import model.Doce;
 import model.Lanche;
-import model.Produto;
 
-import javax.print.Doc;
 import java.util.Scanner;
 
 public class Menu {
@@ -35,27 +34,29 @@ public class Menu {
                 int opcaoMenuPrincipal = sc.nextInt();
                 sc.nextLine();
                 System.out.println();
-                    switch (opcaoMenuPrincipal) {
-                        case 1:
-                            menuAdicionarProduto(sc, controller);
-                            break;
+                switch (opcaoMenuPrincipal) {
+                    case 1:
+                        menuAdicionarProduto(sc, controller);
+                        break;
 
-                        case 2:
-                            controller.removerProduto(sc, controller);
-                            break;
+                    case 2:
+                        controller.removerProduto(sc, controller);
+                        break;
 
-                        case 3:
-                            controller.visualizarCarrinho();
-                            break;
+                    case 3:
+                        controller.visualizarCarrinho();
+                        break;
 
-                        default:
-                            throw new OpcaoInvalidaException();
-                    }
+                    case 4:
+                        controller.limparCarrinho(sc);
+                        break;
+                    default:
+                        throw new OpcaoInvalidaException();
+                }
             } catch (OpcaoInvalidaException e) {
                 System.out.println(e.getMessage());
                 System.out.println();
             }
-
         }
     }
 
@@ -68,20 +69,20 @@ public class Menu {
         System.out.println();
         System.out.print("Opção: ");
 
-        try{
+        try {
             int opcaoAdicionarProduto = sc.nextInt();
             sc.nextLine();
             System.out.println();
 
-            switch (opcaoAdicionarProduto){
+            switch (opcaoAdicionarProduto) {
                 case 1:
                     menuLanches();
-                    try{
+                    try {
                         int opcaoSaborLanche = sc.nextInt();
                         sc.nextLine();
                         System.out.println();
 
-                        switch (opcaoSaborLanche){
+                        switch (opcaoSaborLanche) {
                             case 1:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 int quantidade = sc.nextInt();
@@ -139,7 +140,7 @@ public class Menu {
                             default:
                                 throw new OpcaoInvalidaException();
                         }
-                    }catch (OpcaoInvalidaException e){
+                    } catch (OpcaoInvalidaException e) {
                         System.out.println(e.getMessage());
                         System.out.println();
                     }
@@ -147,12 +148,12 @@ public class Menu {
 
                 case 2:
                     menuBebidas();
-                    try{
+                    try {
                         int opcaoBebida = sc.nextInt();
                         sc.nextLine();
                         System.out.println();
 
-                        switch (opcaoBebida){
+                        switch (opcaoBebida) {
                             case 1:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 int quantidade = sc.nextInt();
@@ -210,7 +211,7 @@ public class Menu {
                             default:
                                 throw new OpcaoInvalidaException();
                         }
-                    }catch (OpcaoInvalidaException e){
+                    } catch (OpcaoInvalidaException e) {
                         System.out.println(e.getMessage());
                         System.out.println();
                     }
@@ -218,12 +219,12 @@ public class Menu {
 
                 case 3:
                     menuDoces();
-                    try{
+                    try {
                         int opcaoDoce = sc.nextInt();
                         sc.nextLine();
                         System.out.println();
 
-                        switch (opcaoDoce){
+                        switch (opcaoDoce) {
                             case 1:
                                 System.out.print("Qual a quantidade desejada?: ");
                                 int quantidade = sc.nextInt();
@@ -263,7 +264,7 @@ public class Menu {
                             default:
                                 throw new OpcaoInvalidaException();
                         }
-                    }catch (OpcaoInvalidaException e){
+                    } catch (OpcaoInvalidaException e) {
                         System.out.println(e.getMessage());
                         System.out.println();
                     }
@@ -275,13 +276,13 @@ public class Menu {
                 default:
                     throw new OpcaoInvalidaException();
             }
-        }catch (OpcaoInvalidaException e){
+        } catch (OpcaoInvalidaException e) {
             System.out.println(e.getMessage());
             System.out.println();
         }
     }
 
-    private void menuLanches(){
+    private void menuLanches() {
         System.out.println("============== Escolha o lanche que deseja ==============");
         System.out.println("[1] - X-Burguer | R$10,00");
         System.out.println("[2] - X-Salada | R$13,00");
@@ -293,7 +294,7 @@ public class Menu {
         System.out.print("Opção: ");
     }
 
-    private void menuBebidas(){
+    private void menuBebidas() {
         System.out.println("============== Escolha a bebida que deseja ==============");
         System.out.println("[1] - Coca-Cola 350ml | R$5,00");
         System.out.println("[2] - Coca-Cola ZERO 350ml | R$5,00");
@@ -305,7 +306,7 @@ public class Menu {
         System.out.print("Opção: ");
     }
 
-    private void menuDoces(){
+    private void menuDoces() {
         System.out.println("============== Escolha o doce que deseja ==============");
         System.out.println("[1] - Snickers | R$3,49");
         System.out.println("[2] - Suflair | R$2,49");
@@ -314,4 +315,5 @@ public class Menu {
         System.out.println();
         System.out.print("Opção: ");
     }
+
 }

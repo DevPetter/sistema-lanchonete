@@ -1,6 +1,7 @@
 package controller;
 
 import exceptions.CarrinhoVazioException;
+import exceptions.OpcaoInvalidaException;
 import exceptions.ProdutoNaoEncontradoException;
 import exceptions.QuantidadeInvalidaException;
 import model.Carrinho;
@@ -52,21 +53,21 @@ public class LanchoneteController {
                         }
                     }
 
-                    try{
-                        if(quantidadeRemovida == encontrado.getQuantidade()){
+                    try {
+                        if (quantidadeRemovida == encontrado.getQuantidade()) {
                             carrinho.getCarrinho().remove(encontrado);
                             System.out.println();
                             System.out.println("Item " + encontrado.getNome() + " removido com sucesso.");
                             System.out.println();
-                        }else if(quantidadeRemovida < encontrado.getQuantidade()){
+                        } else if (quantidadeRemovida < encontrado.getQuantidade()) {
                             encontrado.setQuantidade(encontrado.getQuantidade() - quantidadeRemovida);
                             System.out.println();
                             System.out.println("Quantidade atualizada.");
                             System.out.println();
-                        }else{
+                        } else {
                             throw new QuantidadeInvalidaException();
                         }
-                    }catch (QuantidadeInvalidaException e){
+                    } catch (QuantidadeInvalidaException e) {
                         System.out.println();
                         System.out.println(e.getMessage());
                         System.out.println();
@@ -84,23 +85,66 @@ public class LanchoneteController {
         }
     }
 
-    public void visualizarCarrinho(){
-        try{
-            if(carrinho.getCarrinho().isEmpty()){
+    public void visualizarCarrinho() {
+        try {
+            if (carrinho.getCarrinho().isEmpty()) {
                 throw new CarrinhoVazioException();
-            }else{
+            } else {
                 System.out.println("============== Carrinho ==============");
-                for(Produto p: carrinho.getCarrinho()){
+                for (Produto p : carrinho.getCarrinho()) {
                     double total = p.getPreco() * p.getQuantidade();
                     System.out.print(p.getNome() + " | " + p.getQuantidade() + "x | ");
                     System.out.printf("R$%.2f\n", total);
                     System.out.println();
                 }
+                totalCarrinho();
                 System.out.println();
             }
-        }catch (CarrinhoVazioException e){
+        } catch (CarrinhoVazioException e) {
             System.out.println(e.getMessage());
             System.out.println();
         }
+    }
+
+    public void limparCarrinho(Scanner sc) {
+        try {
+            if (carrinho.getCarrinho().isEmpty() == false) {
+                try {
+                    System.out.print("Tem certeza que deseja LIMPAR o carrinho? (S/N): ");
+                    String confirmacao = sc.nextLine();
+
+                    if (confirmacao.equalsIgnoreCase("S")) {
+                        carrinho.getCarrinho().clear();
+                        System.out.println();
+                        System.out.println("Carrinho limpo com sucesso.");
+                        System.out.println();
+                    } else if (confirmacao.equalsIgnoreCase("N")) {
+                        System.out.println();
+                        return;
+                    } else {
+                        throw new OpcaoInvalidaException();
+                    }
+                } catch (OpcaoInvalidaException e) {
+                    System.out.println(e.getMessage());
+                }
+            } else {
+                throw new CarrinhoVazioException();
+            }
+        } catch (CarrinhoVazioException e) {
+            System.out.println(e.getMessage());
+            System.out.println();
+        }
+    }
+
+    public void totalCarrinho() {
+        double totalCarrinho = 0;
+
+        for (Produto p : carrinho.getCarrinho()) {
+            totalCarrinho += p.getPreco() * p.getQuantidade();
+            carrinho.setTotalCarrinho(totalCarrinho);
+        }
+
+        System.out.printf("Total no carrinho: R$%.2f", totalCarrinho);
+        System.out.println();
     }
 }

@@ -13,7 +13,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Carrinho carrinho = new Carrinho();
         LanchoneteController controller = new LanchoneteController(carrinho);
-
         Menu menu = new Menu(sc, controller);
 
         menu.exibirMenu();
