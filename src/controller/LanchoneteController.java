@@ -28,6 +28,8 @@ public class LanchoneteController {
     public void removerProduto(Scanner sc, LanchoneteController controller) {
         Produto encontrado = null;
 
+        System.out.println("============== Remover produto ==============");
+        System.out.println();
         try {
             if (carrinho.getCarrinho().isEmpty()) {
                 throw new CarrinhoVazioException();
@@ -77,6 +79,26 @@ public class LanchoneteController {
                 }
             }
         } catch (CarrinhoVazioException e) {
+            System.out.println(e.getMessage());
+            System.out.println();
+        }
+    }
+
+    public void visualizarCarrinho(){
+        try{
+            if(carrinho.getCarrinho().isEmpty()){
+                throw new CarrinhoVazioException();
+            }else{
+                System.out.println("============== Carrinho ==============");
+                for(Produto p: carrinho.getCarrinho()){
+                    double total = p.getPreco() * p.getQuantidade();
+                    System.out.print(p.getNome() + " | " + p.getQuantidade() + "x | ");
+                    System.out.printf("R$%.2f\n", total);
+                    System.out.println();
+                }
+                System.out.println();
+            }
+        }catch (CarrinhoVazioException e){
             System.out.println(e.getMessage());
             System.out.println();
         }

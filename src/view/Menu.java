@@ -45,6 +45,8 @@ public class Menu {
                             break;
 
                         case 3:
+                            controller.visualizarCarrinho();
+                            break;
 
                         default:
                             throw new OpcaoInvalidaException();
@@ -124,7 +126,7 @@ public class Menu {
                                 System.out.print("Qual a quantidade desejada?: ");
                                 quantidade = sc.nextInt();
                                 System.out.println();
-                                Lanche lanche5 = new Lanche("X-Tudâo", 28.00, quantidade);
+                                Lanche lanche5 = new Lanche("X-Tudao", 28.00, quantidade);
                                 controller.adicionarProduto(lanche5);
                                 System.out.println("Lanche " + lanche5.getNome() + "(" + lanche5.getQuantidade() + ") adicionado ao carrinho.");
                                 System.out.println();
@@ -285,7 +287,7 @@ public class Menu {
         System.out.println("[2] - X-Salada | R$13,00");
         System.out.println("[3] - X-Churrasquinho | R$18,00");
         System.out.println("[4] - X-Bacon | R$22,00");
-        System.out.println("[5] - X-Tudão | R$28,00");
+        System.out.println("[5] - X-Tudao | R$28,00");
         System.out.println("[0] - Voltar ao menu principal");
         System.out.println();
         System.out.print("Opção: ");
