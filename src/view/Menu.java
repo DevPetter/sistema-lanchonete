@@ -35,20 +35,20 @@ public class Menu {
                 int opcaoMenuPrincipal = sc.nextInt();
                 sc.nextLine();
                 System.out.println();
-
-                if (opcaoMenuPrincipal < 0 || opcaoMenuPrincipal > 5) {
-                    throw new OpcaoInvalidaException();
-                } else {
                     switch (opcaoMenuPrincipal) {
                         case 1:
                             menuAdicionarProduto(sc, controller);
                             break;
 
                         case 2:
+                            controller.removerProduto(sc, controller);
+                            break;
 
+                        case 3:
 
+                        default:
+                            throw new OpcaoInvalidaException();
                     }
-                }
             } catch (OpcaoInvalidaException e) {
                 System.out.println(e.getMessage());
                 System.out.println();
