@@ -33,7 +33,7 @@ Durante o desenvolvimento, busquei trabalhar:
 1. **Clone o repositório do projeto:**
 
 ```bash
-git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/DevPetter/sistema-lanchonete.git)
+git clone https://github.com/DevPetter/sistema-lanchonete.git
 ```
 
 2. **Navegue até a pasta `src`:**
